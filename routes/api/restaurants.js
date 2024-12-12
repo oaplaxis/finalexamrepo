@@ -1,11 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const Restaurant = require('../../models/restaurant')
+const pageSize = 10;
 
-router.get('/', async (req, res, next) => {
-    let Restaurants = await Restaurant.find();
+router.get("/", async (req, res, next) => {
+    let page = req.query.page || 1;
+    let skipSize = pageSize * (page - 1);
+    let Restaurants = await Restaurant.find()
+      .limit(pageSize)
+      .skip(skipSize);
     res.status(200).json(Restaurants);
-})
+  });
+
 
 router.post('/', async (req, res, next) => {
 
@@ -47,3 +53,4 @@ router.delete('/:_id', async (req, res, next) => {
 });
 
 module.exports = router;
+
