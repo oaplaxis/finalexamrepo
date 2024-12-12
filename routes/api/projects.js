@@ -7,12 +7,8 @@ router.get('/', async (req, res, next) => {
     res.status(200).json(projects);
 })
 
-// POST /projects
 router.post('/', async (req, res, next) => {
-    // Test first by logging and sending back body
-    // console.log(req.body);
-    // res.json(req.body);
-    // Validate required fields
+
     if (!req.body.name) {
         res.status(400).json({ 'ValidationError': 'Name is a required field' });
     }

@@ -1,27 +1,24 @@
 // Import Mongoose
 const mongoose = require('mongoose');
 // Create schema definition object using mapping notation
-const projectsSchemaDefinition = {
+const Restaurant = {
     // add each element and its properties
     name: {
         type: String,
         required: true
     },
-    dueDate: {
-        type: Date
+    address: {
+        type: String
     },
-    course: {
-        type: String,
-        required: true
+    phoneNumber: {
+        type: Number
     },
-    status: {
-        type: String,
-        default: 'TO DO'
+    emailAddress: {
+        type: String
+    },
+    rating: {
+        type: Number
     }
 };
-// Create new mongoose schema using the definition object
-var projectsSchema = new mongoose.Schema(projectsSchemaDefinition);
-// Create new mongoose model using the schema object and
-// Import new model > provide name and schema
+var projectsSchema = new mongoose.Schema(Restaurant);
 module.exports = mongoose.model('Project', projectsSchema);;
-// alternative > module.exports = mongoose.model('Project', projectsSchema);
