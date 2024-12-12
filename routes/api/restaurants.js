@@ -27,7 +27,7 @@ router.post('/', async (req, res, next) => {
     }
 });
 
-// PUT /projects/:_id
+// PUT /restaurants/:_id
 router.put('/:_id', async (req, res, next) => {
     // Validate required fields
     if (!req.body.name) {
@@ -50,7 +50,7 @@ router.put('/:_id', async (req, res, next) => {
     }
 });
 
-// DELETE /projects/:_id
+// DELETE /restaurants/:_id
 router.delete('/:_id', async (req, res, next) => {
     await Project.findByIdAndDelete(req.params._id);
     res.status(200).json({ 'success': 'true' });
