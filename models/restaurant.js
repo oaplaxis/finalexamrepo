@@ -5,7 +5,6 @@ const Restaurant = {
     // add each element and its properties
     name: {
         type: String,
-        required: true
     },
     address: {
         type: String
@@ -20,5 +19,5 @@ const Restaurant = {
         type: Number
     }
 };
-var projectsSchema = new mongoose.Schema(Restaurant);
-module.exports = mongoose.model('Project', projectsSchema);;
+var RestaurantsSchema = new mongoose.Schema(Restaurant);
+module.exports = mongoose.model('Restaurant', RestaurantsSchema);;

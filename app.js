@@ -7,7 +7,7 @@ var configs = require("./configs/globals");
 var mongoose = require("mongoose");
 
 var indexRouter = require("./routes/index");
-var projectsRouter = require("./routes/api/restaurants");
+var RestaurantsRouter = require("./routes/api/restaurants");
 
 var app = express();
 
@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 // Routes
 app.use("/", indexRouter);
-app.use("/api/restaurants", projectsRouter);
+app.use("/api/restaurants", RestaurantsRouter);
 
 // MongoDB connection
 mongoose
